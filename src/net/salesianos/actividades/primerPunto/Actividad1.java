@@ -1,5 +1,7 @@
 package net.salesianos.actividades.primerPunto;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Actividad1 {
@@ -15,5 +17,18 @@ public class Actividad1 {
         } while (texto.length() < 30);
 
         scanner.close();
+        
+        String textoFormateado = texto.toUpperCase().replace(' ', '_');
+
+        try (FileWriter escritura = new FileWriter("src/net/salesianos/actividades/primerPunto/punto1.txt")) {
+            for (int i = 0; i < textoFormateado.length(); i++) {
+                escritura.write(textoFormateado.charAt(i));
+            }
+
+            escritura.close();
+            System.out.println("Texto escrito correctamente");
+        } catch (IOException e) {
+            System.out.println("Error ");
+        }
     }
 }
