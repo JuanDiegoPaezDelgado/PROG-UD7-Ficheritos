@@ -21,9 +21,7 @@ public class Actividad1 {
         String textoFormateado = texto.toUpperCase().replace(' ', '_');
 
         try (FileWriter escritura = new FileWriter("src/net/salesianos/actividades/primerPunto/punto1.txt")) {
-            for (int i = 0; i < textoFormateado.length(); i++) {
-                escritura.write(textoFormateado.charAt(i));
-            }
+           escritura.write(textoFormateado);
 
             escritura.close();
             System.out.println("Texto escrito correctamente");
