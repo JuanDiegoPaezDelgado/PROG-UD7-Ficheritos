@@ -18,13 +18,13 @@ public class segundoPunto {
 
         String rutaLectura = "src\\net\\salesianos\\actividades\\segundoPunto\\segundoPunto.txt";
         try (FileReader entrada = new FileReader(rutaLectura)) {
-            int c = entrada.read();
-            while (c != -1) {
+            int c;
+            while ((c = entrada.read()) != -1) {
                 char letra = (char) c;
                 System.out.print(letra + "_" + c);
                 c = entrada.read();
                 if (c != -1) {
-                    System.out.print(",");
+                    System.out.print(", ");
                 }
             }
 
