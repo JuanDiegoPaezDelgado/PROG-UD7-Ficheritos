@@ -22,11 +22,10 @@ public class Actividad1 {
 
         try (FileWriter escritura = new FileWriter("src/net/salesianos/actividades/primerPunto/punto1.txt")) {
            escritura.write(textoFormateado);
-
             escritura.close();
             System.out.println("Texto escrito correctamente");
         } catch (IOException e) {
-            System.out.println("Error ");
+            System.out.println("Error I/O");
         }
     }
 }
