@@ -7,31 +7,25 @@ import java.io.IOException;
 public class segundoPunto {
     public static void main(String[] args) {
         String texto = "Hola, pibe.";
-        String rutaEscritura = "src\\net\\salesianos\\actividades\\segundoPunto\\segundoPunto.txt";
-        try (FileWriter writer = new FileWriter(rutaEscritura)) {
+
+        try (FileWriter writer = new FileWriter("src\\Segundo\\segundo.txt");FileReader entrada = new FileReader("src\\Segundo\\segundo.txt")) {
             writer.write(texto);
             System.out.println("Texto guardado en el fichero.");
             writer.close();
-        } catch (IOException e) {
-            System.out.println("No se ha podido crear el archivo");
-        }
-
-        String rutaLectura = "src\\net\\salesianos\\actividades\\segundoPunto\\segundoPunto.txt";
-        try (FileReader entrada = new FileReader(rutaLectura)) {
-            int c = 0;
+            
+            String resultado = "";
+            int c;
             while ((c = entrada.read()) != -1) {
                 char letra = (char) c;
-                System.out.print(letra + "_" + c);
-                c = entrada.read();
-                if (c != -1) {
-                    System.out.print(", ");
-                }
+                resultado += letra + "_" + c + ", ";
             }
 
+            System.out.println(resultado.substring(0, resultado.length() - 2) + ".");
             entrada.close();
         } catch (IOException e) {
             System.out.println("Error");
+        
         }
-
+        
     }
 }
